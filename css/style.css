@@ -1,9 +1,10 @@
-html body {
+html,
+body {
   height: 100%;
 }
 
 body {
-  background-color: black;
+  background-color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,4 +16,50 @@ body {
   position: relative;
   overflow-x: auto;
   background-image: url("../images/water0.png");
+}
+
+#ports {
+  margin-top: 96px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#ports > .port {
+  width: 64px;
+  height: 32px;
+  background-image: url("../images/port.png");
+}
+
+#ship {
+  width: 128px;
+  height: 64px;
+  background-image: url("../images/ship.png");
+  position: absolute;
+}
+
+#sailbutton {
+  border: 0;
+  background-color: #fb3640;
+  border-bottom: 4px solid #d8040f;
+  color: white;
+  font-family: inherit;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-family: "Press Start 2P", cursive;
+}
+
+#sailbutton:hover {
+  background-color: #d8040f;
+  border-bottom-width: 0;
+  padding-top: 14px;
+}
+
+#message {
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  position: fixed;
+  top: 14em;
 }
