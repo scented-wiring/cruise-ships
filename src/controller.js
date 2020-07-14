@@ -32,6 +32,11 @@
         portsElement.appendChild(newPortElement);
         const portsElementWidth = parseInt(portsElement.style.width, 10);
         portsElement.style.width = `${portsElementWidth + 256}px`;
+
+        let i = Math.random();
+        if (i <= 0.3) {
+          newPortElement.style.backgroundImage = "url('./images/port2.png')";
+        }
       });
     },
 
@@ -48,8 +53,6 @@
       shipElement.style.left = `${portElement.offsetLeft - 32}px`;
     },
 
-    renderMessage(message) {},
-
     setSail() {
       const ship = this.ship;
       const nextPortIndex = ship.itinerary.ports.indexOf(ship.currentPort) + 1;
@@ -57,7 +60,7 @@
         `[data-port-index = "${nextPortIndex}"]`
       );
       if (!portElement) {
-        window.alert("End of the line, skip!");
+        this.renderMessage("End of the line, skip!");
         return;
       }
 
@@ -75,8 +78,23 @@
         }
         shipElement.style.left = `${shipPosition + 1}px`;
         shipPosition += 1;
-      }, 10);
+      }, 20);
       ship.dock();
+      this.renderMessage(`Departing from ${ship.previousPort.name}`);
+      window.setTimeout(() => {
+        this.renderMessage(`Approaching ${ship.currentPort.name}`);
+      }, 2500);
+    },
+
+    renderMessage(message) {
+      const messageElement = document.createElement("div");
+      messageElement.id = "message";
+      messageElement.textContent = message;
+      const viewport = document.querySelector("#viewport");
+      viewport.appendChild(messageElement);
+      window.setTimeout(() => {
+        viewport.removeChild(messageElement);
+      }, 2000);
     },
   };
 
