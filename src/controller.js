@@ -5,7 +5,11 @@
     this.initialiseSea();
 
     document.querySelector("#sailbutton").addEventListener("click", () => {
-      this.setSail();
+      if (document.getElementById("message") !== null) {
+        null;
+      } else {
+        this.setSail();
+      }
     });
   }
 
@@ -100,7 +104,7 @@
       this.renderMessage(`Departing from ${ship.previousPort.name}`);
       window.setTimeout(() => {
         this.renderMessage(`Approaching ${ship.currentPort.name}`);
-      }, 2500);
+      }, 2530);
     },
 
     renderMessage(message) {
@@ -111,7 +115,7 @@
       viewport.appendChild(messageElement);
       window.setTimeout(() => {
         viewport.removeChild(messageElement);
-      }, 2000);
+      }, 2530);
     },
 
     renderDisplay() {
@@ -120,7 +124,7 @@
         ship.currentPort.name +
         "\n" +
         "Next port: " +
-        this.ship.nextPort.name;
+        ship.nextPort.name;
     },
   };
 

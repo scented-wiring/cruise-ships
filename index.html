@@ -28,10 +28,11 @@
         new Port("Grand Turk"),
         new Port("San Juan"),
         new Port("Amber Cove"),
+        new Port("Liverpool"),
+        new Port("Treasure Island"),
       ]);
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
-
       controller.renderPorts(itinerary.ports);
       controller.renderShip();
       controller.renderDisplay();

@@ -51,10 +51,12 @@ body {
   font-family: "Press Start 2P", cursive;
 }
 
-#sailbutton:focus {
-  background-color: #d8040f;
-  border-bottom-width: 0;
-  padding-top: 14px;
+#addport {
+  border: black solid 2px;
+  padding: 2px 2px 2px 2px;
+  background-color: #fb3640;
+  color: white;
+  font-family: "Press Start 2P", cursive;
 }
 
 #message {
