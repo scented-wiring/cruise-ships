@@ -63,3 +63,11 @@ body {
   position: fixed;
   top: 14em;
 }
+
+#display {
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  white-space: pre-wrap;
+  top: 10em;
+  position: fixed;
+}

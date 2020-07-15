@@ -2,6 +2,7 @@
   function Ship(itinerary) {
     this.itinerary = itinerary;
     this.currentPort = itinerary.ports[0];
+    this.nextPort = itinerary.ports[1];
     this.previousPort = null;
     this.currentPort.addShip(this);
   }
@@ -16,6 +17,7 @@
       const itinerary = this.itinerary;
       const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
       this.currentPort = itinerary.ports[previousPortIndex + 1];
+      this.nextPort = itinerary.ports[previousPortIndex + 2];
     },
   };
 

@@ -33,7 +33,7 @@
         const portsElementWidth = parseInt(portsElement.style.width, 10);
         portsElement.style.width = `${portsElementWidth + 256}px`;
 
-        let i = Math.random();
+        const i = Math.random();
         if (i <= 0.3) {
           newPortElement.style.backgroundImage = "url('./images/port2.png')";
         }
@@ -49,7 +49,7 @@
       );
 
       const shipElement = document.querySelector("#ship");
-      shipElement.style.top = `${portElement.offsetTop + 32}px`;
+      shipElement.style.top = `${portElement.offsetTop + 40}px`;
       shipElement.style.left = `${portElement.offsetLeft - 32}px`;
     },
 
@@ -75,6 +75,23 @@
         if (shipPosition === portPosition - 32) {
           clearInterval(sailing);
           document.getElementById("sailbutton").textContent = "Set Sail!";
+
+          if (
+            itinerary.ports.indexOf(ship.currentPort) ===
+            itinerary.ports.length - 1
+          ) {
+            document.getElementById("display").textContent =
+              "Current port: " +
+              ship.currentPort.name +
+              "\n" +
+              "Next port: None ";
+          }
+          document.getElementById("display").textContent =
+            "Current port: " +
+            ship.currentPort.name +
+            "\n" +
+            "Next port: " +
+            ship.nextPort.name;
         }
         shipElement.style.left = `${shipPosition + 1}px`;
         shipPosition += 1;
@@ -95,6 +112,15 @@
       window.setTimeout(() => {
         viewport.removeChild(messageElement);
       }, 2000);
+    },
+
+    renderDisplay() {
+      document.getElementById("display").textContent =
+        "Current port: " +
+        ship.currentPort.name +
+        "\n" +
+        "Next port: " +
+        this.ship.nextPort.name;
     },
   };
 
